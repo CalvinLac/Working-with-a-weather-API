@@ -1,6 +1,7 @@
 require 'httparty'
 require 'pp'
 require 'json'
+require 'colorize'
 
 class WeatherForecast 
   include HTTParty
@@ -28,8 +29,10 @@ class WeatherForecast
       hi_temps.push day['temp']['max']
       low_temp.push day['temp']['min']
     end
-    puts "The high temp for is #{hi_temps}"
-    puts "The low temp for is #{low_temp}"
+    puts "The high temp for today is #{hi_temps[0]}".red
+    puts "The low temp for today is #{low_temp[0]}".blue
+    puts "The high temp for tomorrow is #{hi_temps[1]}".red
+    puts "The low temp for tomorrow is #{low_temp[1]}".blue
 
   end
 
